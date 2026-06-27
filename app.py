@@ -331,16 +331,15 @@ elif page == "🎯 Product Recommendations":
 
         st.markdown("---")
         st.markdown("**📦 Product Stats**")
-        prod_stats = df[df['Description']==selected].agg(
-            Total_Sold=('Quantity','sum'),
-            Customers=('CustomerID','nunique'),
-            Avg_Price=('UnitPrice','mean'),
-            Revenue=('TotalAmount','sum')
-        )
-        st.metric("Total Sold", f"{int(prod_stats['Total_Sold']):,}")
-        st.metric("Unique Buyers", f"{int(prod_stats['Customers']):,}")
-        st.metric("Avg Unit Price", f"£{prod_stats['Avg_Price']:.2f}")
-        st.metric("Total Revenue", f"£{prod_stats['Revenue']:,.2f}")
+        prod_df = df[df['Description'] == selected]
+        total_sold  = int(prod_df['Quantity'].sum())
+        customers   = int(prod_df['CustomerID'].nunique())
+        avg_price   = float(prod_df['UnitPrice'].mean())
+        revenue     = float(prod_df['TotalAmount'].sum())
+        st.metric("Total Sold",     f"{total_sold:,}")
+        st.metric("Unique Buyers",  f"{customers:,}")
+        st.metric("Avg Unit Price", f"£{avg_price:.2f}")
+        st.metric("Total Revenue",  f"£{revenue:,.2f}")
 
     with col2:
         if rec_btn or True:  # Show recommendations on load
