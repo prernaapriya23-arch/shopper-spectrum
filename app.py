@@ -40,19 +40,23 @@ st.markdown("""
         background: linear-gradient(135deg, #1e293b, #0f172a);
         border: 1px solid #334155;
         border-radius: 16px;
-        padding: 1.5rem;
+        padding: 1rem 0.5rem;
         text-align: center;
     }
     .metric-value {
-        font-size: 2rem;
+        font-size: 1.3rem;
         font-weight: 700;
         color: #818cf8;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .metric-label {
         color: #64748b;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
     }
     .segment-badge {
         display: inline-block;
