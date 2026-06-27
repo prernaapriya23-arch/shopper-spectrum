@@ -476,5 +476,4 @@ elif page == "📈 EDA Insights":
             fig2.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(15,23,42,0.8)')
             st.plotly_chart(fig2, use_container_width=True)
 
-        st.dataframe(country_data.style.background_gradient(subset=['Revenue'], cmap='Purples'),
-                    use_container_width=True)
+        st.dataframe(country_data, use_container_width=True)
